@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +47,8 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/wifi', 'wifi')->name('wifi');
     Route::get('/mess', 'mess')->name('mess');
 });
+
+Route::post('/wifipost', [PageController::class, 'wifipost'])->name('wifipost');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

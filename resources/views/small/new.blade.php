@@ -11,6 +11,7 @@
     <title>新型のノートPCを購入する</title>
     <link rel="stylesheet" href="/css/home.css">
     <script src="/js/zooming.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <meta name='robots' content='max-image-preview:large' />
@@ -213,13 +214,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <h2>◆新型ノート PC 富士通製 LIFEBOOKU7311/F</h2>
         <p>&nbsp;</p>
         <style>
-            #infor {
-                box-shadow: 0 0.0625rem 0.125rem rgb(0 0 0 / 11%), 0 0.1875rem 0.4375rem rgb(0 0 0 / 13%) !important;
-            }
+           
         </style>
       <div id="infor"class="container">
             <div class="row">
                 <div class="col-lg-4">
+                  
                     <div class="thuvienanh">
                         <div class="image">
                             <img class="myimg" src="/img/new.jpeg" alt="" style="cursor: zoom-in;">
@@ -233,9 +233,47 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                         <li>納期:5 月末(予定)</li>
                         <li>保証期間:4 年</li>
                     </ul>
+                    <script type="text/javascript">
+                        $(function() {
+                            $('ul.wifi li').on('click', function() {
+                                $('ul.wifi li').removeClass('active');
+                                $(this).addClass('active');
+                                var data = $(this).data('id');
+                                console.log(data);
+                                $('.subtotal__numbers').html(data);
+                            });
+                        });
+                    </script>
+                    <ul class="wifi">
+                        <li class="" data-value="8000" data-id="¥138,000">学校のモバイルルータを借りたい
+                            <br>通信費の自己負担 年額 8,000 円
+                            <p>auの回線 上限10Gバイト</p>
+                            
+                            <div class="d-flex">
+                            <img src="/img/wifi.jpeg" width="40%" alt="">
+                                <div class="ml-1">
+                                   <p>通常購入価格 26,000 円</p> 
+                                   <p>年間通信料 36,000 円</p> 
+                            
+                                </div>
+                            </div>
+                            
+                        </li>
+                        <li class="" data-value="0" data-id="¥130,000">学校のモバイルルータを借りたくない</li>
+                    </ul>
+                    <hr style="opacity: 1;">
+                    <div>
+                        <div class="bottom-bar-content d-flex justify-content-between align-items-center flex-wrap my-2">
+                            <h3 class="subtotal__label h6 mb-0" style="margin-right:20%; font-weight: 800;" data-automation-test-id="configuratorV3-BottomBar-subtotal">小計</h3>
+                            <p class="subtotal__numbers h6 mb-0">¥107,580</p>
+                        </div>
+                        <button class="rail-container__rail__button btn btn-primary btn-block mt-3"  data-automation-test-id="configuratorV3-BottomBar-button">
+                            次へ
+                        </button>
+                    </div>
                     
                 </div>
-                <div class="col-lg-8 pl-lg-5">
+                <div class="col-lg-8 pl-lg-5 mt-5">
                     <p>スリム・モバイル・ライフブック</p>
                     <h1 style="font-weight: 1000;">LIFEBOOK U7311/F</h1>
                     <p>13.3型 HD（1366×768）</p>
@@ -246,54 +284,56 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                     <table class="table table-bordered">
                         <tbody>
                           <tr class="">
-                            <th class="col-3 text-center">機種の選定</th>
-                            <td>Windows
-                                仮想環境に Windows を入れられる Mac、Linux は可 (マイ PC とならない機種)Chromebook、iPad</td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="col-2 text-center">CPU</th>
-                            <td>インテル Core i3、インテル Core m3 以上 AMD の同等性能以上</td>
+                            <th class="col-3 text-center">CPU</th>
+                            <td>インテル® CoreTM i5-1145G7(最新の第 11 世代)</td>
                           </tr>
                           <tr>
                             <th scope="row" class="col-2 text-center">メインメモリ</th>
-                            <td colspan="2">8GB 以上</td>
-                          </tr>
-                          <tr class="">
-                            <th class="col-2 text-center">ディスプレイ</th>
-                            <td>10.5 インチ以上</td>
+                            <td>16GB(オンボード 8GB+8GB)</td>
                           </tr>
                           <tr>
                             <th scope="row" class="col-2 text-center">OS</th>
-                            <td>Windows10 (仮想環境も可)</td>
+                            <td colspan="2">Windows10 Pro</td>
+                          </tr>
+                          <tr class="">
+                            <th class="col-2 text-center">ディスプレイ</th>
+                            <td>13.3 型 HD(1366×768)</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">グラフィック</th>
+                            <td>Intel® Iris® Xe Graphics(CPU 内蔵)</td>
                           </tr>
                           <tr>
                             <th scope="row" class="col-2 text-center">SSD</th>
-                            <td colspan="2">128GB SSD 以上</td>
+                            <td colspan="2">512GB 標準暗号化機能付フラッシュメモリ (DRAM-less SSD/PCIe NVMe)</td>
                           </tr>
                           <tr class="">
-                            <th class="col-2 text-center">Web カメラ</th>
-                            <td>内蔵(いつでも接続できるなら外付けも可)</td>
+                            <th class="col-2 text-center">光学ドライブ</th>
+                            <td>なし</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">Web カメラ</th>
+                            <td>内蔵(有効画素数約 92 万画素、Windows Hello 対応)</td>
                           </tr>
                           <tr>
                             <th scope="row" class="col-2 text-center">バッテリー</th>
-                            <td>通常の使用で 10 時間以上(学校で充電はできない)</td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="col-2 text-center">WiFi</th>
-                            <td colspan="2">IEEE 802.11a/b/g/n/ac 以上(学校の WiFi に接続)</td>
+                            <td colspan="2">リチウムイオン 60Wh(大容量バッテリー)約 26.0 時間</td>
                           </tr>
                           <tr class="">
-                            <th class="col-2 text-center">質量</th>
-                            <td>約 1.5Kg 以下(学校に持ってこれる)</td>
+                            <th class="col-2 text-center">通信</th>
+                            <td>1GbLAN、IEEE 802.11ax(Wi-Fi 6)、Bluetooth V5.1 準拠</td>
                           </tr>
                           <tr>
-                            <th scope="row" class="col-2 text-center">備考</th>
-                            <td>キーボードがついている</td>
+                            <th scope="row" class="col-2 text-center">質量</th>
+                            <td>約 1.23kg</td>
                           </tr>
                           <tr>
-                            <th scope="row" class="col-2 text-center">必要なソフト</th>
-                            <td colspan="2">Office365 のアカウントで在学中は Office のインストール可 基本的にクラウド環境を利用するブラウザ
-                                IT・Web 学科の RPA ツール(UiPath)は Windows が必要</td>
+                            <th scope="row" class="col-2 text-center">付属品</th>
+                            <td colspan="2">光学式マウス、リカバリーディスク</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">保証</th>
+                            <td colspan="2">4 年引取修理、海外修理対応(Fujitsu Business Technologies Asia Pacific Limited など)</td>
                           </tr>
                         </tbody>
                       </table>

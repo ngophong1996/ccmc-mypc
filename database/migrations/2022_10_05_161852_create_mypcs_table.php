@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('mypcs', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
+            $table->string('useremail');
+            $table->string('class');
+            $table->string('option');
+            $table->string('device');
+            $table->string('image');
+            $table->integer('wifi');
+            $table->integer('total');
+            $table->integer('paymentstate')->default(0);
             $table->timestamps();
         });
     }

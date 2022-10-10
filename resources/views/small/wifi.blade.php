@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://ccmc.ac.jp/admission/wp-content/themes/ccmc-admission/favicon.png" type="image/png">
-    <title>マイPC希望サイト</title>
+    <title>無線LAN利用申請</title>
     <link rel="stylesheet" href="/css/home.css">
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//www.google.com' />
@@ -203,110 +203,83 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
         <div class="post">
             <h1 class="h1-page-title">
-                マイPC希望   </h1>
+                無線LAN利用申請   </h1>
             <div class="h1-page-title-shadow">
             </div>
-           
-        <h2>◆マイPC希望調査</h2>
+            @if(Session::has('flash_message'))
+    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+@endif
+        <h2>◆学生用 ノートPC無線LAN利用申請
+        </h2>
         <p>&nbsp;</p>
-        <p>校長先生から、学生がコンピュータ・スキルを身に付ける環境を整備・充実していくため に、「マイ PC」(自分自身でパソコンを所有し、「遠隔授業」を含めて学校でも自宅でも学習 できる環境づくり)を学校が奨励し支援し、今後、すべての学生は、「マイ PC」を使って授 業を受講することができるように「マイ PC」必携化と新たな「マイ PC」支援制度について メッセージが発せられました。</p>
-        <p><img loading="lazy" class="alignnone wp-image-1335" src="https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-300x225.jpg" alt="" width="428" height="321" srcset="https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-300x225.jpg 300w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-1024x768.jpg 1024w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-768x576.jpg 768w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-1536x1152.jpg 1536w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-2048x1536.jpg 2048w" sizes="(max-width: 428px) 100vw, 428px" /></p>
+        <p>校内無線LANを利用するには登録申請が必要です。</p>
+        <p>接続できる端末は原則、ノートパソコンのみとなります。（スマートフォンは不可）</p>
+        <p>こちらの申請用フォームから登録してください。</p>
+        <p>承認後、Office365のOutlookメールにて接続情報が送信されます。</p>
         <p>&nbsp;</p>
-        <p>このサイトでは，マイPCに関する希望調査を実施します．</p>
-            <ul>
-                <li>１年生は必ず全員が回答してください</li>
-                <li>２年生の中で，これからPCを購入することを検討している人は，アンケートの中にPC購入についての希望調査がありますので，回答してください．</li>
-            </ul>
+        <p>■接続するPCのOSが Windows11/Windows10の場合</p>
+        <p>「ランダム ハードウェア アドレス」を無効にする</p>
+        <p>手順</p>
+        <ul>
+            <li>[スタート] ボタン - [設定] をクリック</li>
+        <li>設定画面が表示されるので、[ネットワークとインターネット]を開きます。</li>
+        <li>画面左側のメニューから「Wi-Fi」を選択し、画面右側にあの[既知のネットワークの管理] をクリック</li>
+        <li>ランダムハードウェアアドレスを使用したい接続設定を選択し、[プロパティ] をクリック</li>
+        <li>「ランダムなハードウェアアドレス」の[このネットワークでランダムなアドレスを使う] をクリック
+            [オフ] を選択します。</li>
+        </ul>
+        
+          
+        <p>■接続するPCが Mac,iPadの場合</p>
+        <p>「プライベートアドレス」のスイッチをOFFにします。</p>
+        
         
         
            
         </div>
-<div id="middle" class="clearfix">
-        <div class="top02 clearfix">
-            <div class="section-title">希望するものを選ぶ</div>
-            <!------------>
-            <div class="cell course01">
-                <div class="image image1">
-                    <img src="https://www.ccmc.ac.jp/wp-content/themes/ccmc/images/top/top_course01.png" alt="ITWeb学科">
+        
+<div id="form" >
+        <div class="col-8">
+            <div class="section-title mb-4">申請用フォーム</div>
+            <form action="/wifipost" method="POST">
+                @csrf
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">1. ノートPCのWi-FiのMACアドレス(物理アドレス)を記入ください。</label>
+                  <div id="emailHelp" class="form-text">  入力形式  AB:CD:23:45:DF:67　（半角で入力）</div>
+                  <input type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-                <div class="information">
-                    <div class="title">
-                        自分のノートPCを学校に持って来る
-                        <div class="subtitle">
-                        もってこれるノートPCをすでに持っている・自分で購入する
+       
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">2. ノートPCのOS種別を選択　（スマートフォンはNG）</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="os" value="Windows 10" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Windows 10
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="os" value="√Windows 11" id="flexRadioDefault2" >
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Windows 11
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="os" value="MacOS / OS X" id="flexRadioDefault3" >
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            MacOS / OS X
+                        </label>
+                      </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">3. ノートPCの詳細を記入下さい（メーカー、型番）</label>
+                   
+                    <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                  
 
-
-                        </div>
-                    </div>
-                    <div class="message">
-                        ※学校指定のスペック以上で、授業で利用できる ノート PC を学校に持って来てください。
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/it-web"></a>
-            </div>
-            <!--------------->
-            <div class="cell course03">
-                <div class="image image1">
-                    <img src="https://ccmc.ac.jp/admission/wp-content/uploads/2021/10/iOS-%E3%81%AE%E7%94%BB%E5%83%8F-2-1-1024x768.jpg" alt="ICTマネジメント学科">
-                </div>
-                <div class="information">
-                    <div class="title">
-                        新型のノートPCを購入する
-                        <div class="subtitle">
-                            新型ノート PC 富士通製 LIFEBOOKU7311/F
-                        </div>
-                    </div>
-                    <div class="message">
-                        <h5>学生購入価格 130,000 円</h5>
-                        <p>納期:5 月末(予定)</p>
-                        <p>保証期間:4 年</p>
-                        <p>通常購入価格 230,000 円</p>
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/ai-project"></a>
-            </div> 
-            <!----------------> 
-            <div class="cell course02">
-                <div class="image image1">
-                    <img src="https://ccmc.ac.jp/admission/wp-content/uploads/2022/06/IMG_9679-768x576.jpg" alt="ビジネスデザイン学科">
-                </div>
-                <div class="information">
-                    <div class="title">
-                        中古のノートPCを購入する
-                        <div class="subtitle">
-                            中古 Panasonic2016 年製 Let's note CF-MX5
-                        </div>
-                    </div>
-                    <div class="message">
-                        <h5>学生購入価格 66,000 円</h5>
-                        <p>納期:5 月はじめ(予定) 保証期間:6 ヶ月</P>
-                        <p> (保証期間後、自費での修理は可能です)</P>
-                        <p>状態の良い A ランク品</P>
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/business"></a>
-            </div>
-            <!---------------->
-            <div class="cell course04">
-                <div class="image image1">
-                    <img src="https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/PC%E8%B2%B8%E4%B8%8E.jpg" alt="ビジネスデザイン学科">
-                </div>
-                <div class="information">
-                    <div class="title">
-                        学校のノートPCを借りる
-                        <div class="subtitle">
-                            マイクロソフト Surface Go 2
-                        </div>
-                    </div>
-                    <div class="message">
-                        <h5>通信費の自己負担 年額 18,000 円</h5>
-                            <p>貸与:5 月はじめ(予定) (内訳)
-                                <p>管理費 年額 10,000 円 学生負担通信料 年額 8,000 円
-                                    <p>通常購入価格 110,600 円 年間通信料 36,000円 のところ
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/business"></a>
-            </div>
+    
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
         </div>
         </div>
 
