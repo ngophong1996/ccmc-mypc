@@ -85,7 +85,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                         </ul>
                         </li>
                         <li id="menu-item-1405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1405"><a href="https://ccmc.ac.jp/admission/from-abroad/">海外特別入試</a></li>
-                        <li id="menu-item-1406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="https://ccmc.ac.jp/admission/#home-job-training">マイPC希望</a>
+                        <li id="menu-item-1406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="{{ route('home') }}">マイPC希望</a>
                         <ul class="sub-menu">
                             <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('none') }}">自分のノートPCを持ち</a></li>
                             <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('new') }}"> 新型のノートPCを購入</a></li>
@@ -97,7 +97,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                         @if (Route::has('login'))
                         
                                 @auth
-                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="https://ccmc.ac.jp/admission/request/abroad/">{{ Auth::user()->name }}</a>
+                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('home') }}">{{ Auth::user()->name }}</a>
                                         <ul class="sub-menu">
                                             
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mypc') }}">マイPC</a></li>
@@ -111,7 +111,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                         </ul>
                                     </li>
                                 @else
-                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="https://ccmc.ac.jp/admission/request/abroad/">ログイン</a>
+                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('login') }}">ログイン</a>
                                         <ul class="sub-menu">
                                             
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('login') }}">ログイン</a></li>
@@ -139,44 +139,68 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <i class="fal fa-times fa-stack-1x"></i>
         </span>
     </div>
-    <div class="menu-header2205-container"><ul id="menu-header2205-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1389"><a href="https://ccmc.ac.jp/admission/#home-ee">入試情報</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1396"><a href="https://ccmc.ac.jp/admission/how-to-application-2/">マイページ登録</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1393"><a href="https://ccmc.ac.jp/admission/how-to-application/">日本人一般入試</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1391"><a href="https://ccmc.ac.jp/admission/how-to-application-1/">留学生AO入試</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1392"><a href="https://ccmc.ac.jp/admission/extrance-examination/">留学生一般入試</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1395"><a href="https://ccmc.ac.jp/admission/requirement/">日本人募集要項</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1394"><a href="https://ccmc.ac.jp/admission/requirement-2/">留学生募集要項</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1397"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1398"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1399"><a href="https://ccmc.ac.jp/admission/request/oc/">オープンキャンパス申し込み</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1400"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1401"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1402"><a href="https://ccmc.ac.jp/admission/#home-blog">学校ブログ</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1403"><a href="https://ccmc.ac.jp/admission/#home-sns">SNS</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1404"><a href="https://ccmc.ac.jp/admission/#home-courses">学科・実績紹介</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1405"><a href="https://ccmc.ac.jp/admission/from-abroad/">海外特別入試</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="https://ccmc.ac.jp/admission/#home-job-training">公共職業訓練</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="https://ccmc.ac.jp/admission/job-training/">IT技術者養成</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="https://ccmc.ac.jp/admission/request/abroad/">資料請求</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="https://ccmc.ac.jp/admission/request/japanese/">資料請求（日本人）</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="https://ccmc.ac.jp/admission/request/abroad/">資料請求（留学生）</a></li>
-</ul>
-</li>
-</ul></div></div>
-
+    <div class="menu-header2205-container">
+        <ul id="menu-header2205-1" class="menu">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1389"><a href="https://ccmc.ac.jp/admission/#home-ee">入試情報</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1396"><a href="https://ccmc.ac.jp/admission/how-to-application-2/">マイページ登録</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1393"><a href="https://ccmc.ac.jp/admission/how-to-application/">日本人一般入試</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1391"><a href="https://ccmc.ac.jp/admission/how-to-application-1/">留学生AO入試</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1392"><a href="https://ccmc.ac.jp/admission/extrance-examination/">留学生一般入試</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1395"><a href="https://ccmc.ac.jp/admission/requirement/">日本人募集要項</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1394"><a href="https://ccmc.ac.jp/admission/requirement-2/">留学生募集要項</a></li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1397"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1398"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1399"><a href="https://ccmc.ac.jp/admission/request/oc/">オープンキャンパス申し込み</a></li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1400"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1401"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1402"><a href="https://ccmc.ac.jp/admission/#home-blog">学校ブログ</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1403"><a href="https://ccmc.ac.jp/admission/#home-sns">SNS</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1404"><a href="https://ccmc.ac.jp/admission/#home-courses">学科・実績紹介</a></li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1405"><a href="https://ccmc.ac.jp/admission/from-abroad/">海外特別入試</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="{{ route('home') }}">マイPC希望</a>
+                <ul class="sub-menu">
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('none') }}">自分のノートPCを持ち</a></li>
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('new') }}"> 新型のノートPCを購入</a></li>
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('old') }}">中古のノートPCを購入</a></li>
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('rent') }}">学校のノートPCを借り</a></li>
+                </ul>
+            </li>
+        @if (Route::has('login'))
+            @auth
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('home') }}">{{ Auth::user()->name }}</a>
+            <ul class="sub-menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mypc') }}">マイPC</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('wifi') }}">無線LAN利用申請</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mess') }}">問い合わせ</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('frm-logout').submit();">ログアウト</a>
+                    <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                        </form>
+                </li>
+            </ul>
+            </li>
+            @else
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('login') }}">ログイン</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('login') }}">ログイン</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('register') }}">新規登録</a></li>
+                        
+                    </ul>
+                    </li>
+            @endauth
+        @endif
+        </ul>
+    </div>
+</div>
 
     <div class="container">
 
@@ -278,7 +302,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   
 
     
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">送信</button>
               </form>
         </div>
         </div>

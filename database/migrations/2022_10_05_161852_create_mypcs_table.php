@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('class');
             $table->string('option');
             $table->string('device');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('wifi');
             $table->integer('total');
             $table->integer('paymentstate')->default(0);

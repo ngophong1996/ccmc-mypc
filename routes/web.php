@@ -18,10 +18,10 @@ use App\Http\Controllers\Controller;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 Route::get('/home', function () {
     return view('home');
-});
+})->middleware(['verified']);
 /*-----email_verify----*/
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -43,12 +43,14 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/new', 'new')->name('new');
     Route::get('/old', 'old')->name('old');
     Route::get('/rent', 'rent')->name('rent');
-    Route::get('/mypc', 'mypc')->name('mypc');
-    Route::get('/wifi', 'wifi')->name('wifi');
-    Route::get('/mess', 'mess')->name('mess');
+    Route::get('/mypc', 'mypc')->middleware(['auth', 'verified'])->name('mypc');
+    Route::get('/wifi', 'wifi')->middleware(['auth', 'verified'])->name('wifi');
+    Route::get('/mess', 'mess')->middleware(['auth', 'verified'])->name('mess');
 });
 
-Route::post('/wifipost', [PageController::class, 'wifipost'])->name('wifipost');
+Route::post('/wifipost', [PageController::class, 'wifipost'])->middleware(['auth', 'verified'])->name('wifipost');
+Route::post('/mypcpost', [PageController::class, 'mypcpost'])->middleware(['auth', 'verified'])->name('mypcpost');
+Route::post('/billpost', [PageController::class, 'billpost'])->middleware(['auth', 'verified'])->name('billpost');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

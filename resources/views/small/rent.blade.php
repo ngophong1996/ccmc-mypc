@@ -8,8 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://ccmc.ac.jp/admission/wp-content/themes/ccmc-admission/favicon.png" type="image/png">
-    <title>マイPC希望サイト</title>
+    <title>学校のノートPCを借り</title>
     <link rel="stylesheet" href="/css/home.css">
+    <script src="/js/zooming.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//www.google.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
@@ -85,7 +89,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                         </ul>
                         </li>
                         <li id="menu-item-1405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1405"><a href="https://ccmc.ac.jp/admission/from-abroad/">海外特別入試</a></li>
-                        <li id="menu-item-1406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="https://ccmc.ac.jp/admission/#home-job-training">マイPC希望</a>
+                        <li id="menu-item-1406" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="{{ route('home') }}">マイPC希望</a>
                         <ul class="sub-menu">
                             <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('none') }}">自分のノートPCを持ち</a></li>
                             <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('new') }}"> 新型のノートPCを購入</a></li>
@@ -97,7 +101,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                         @if (Route::has('login'))
                         
                                 @auth
-                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="https://ccmc.ac.jp/admission/request/abroad/">{{ Auth::user()->name }}</a>
+                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('home') }}">{{ Auth::user()->name }}</a>
                                         <ul class="sub-menu">
                                             
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mypc') }}">マイPC</a></li>
@@ -111,7 +115,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                         </ul>
                                     </li>
                                 @else
-                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="https://ccmc.ac.jp/admission/request/abroad/">ログイン</a>
+                                    <li id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('login') }}">ログイン</a>
                                         <ul class="sub-menu">
                                             
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('login') }}">ログイン</a></li>
@@ -139,45 +143,69 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <i class="fal fa-times fa-stack-1x"></i>
         </span>
     </div>
-    <div class="menu-header2205-container"><ul id="menu-header2205-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1389"><a href="https://ccmc.ac.jp/admission/#home-ee">入試情報</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1396"><a href="https://ccmc.ac.jp/admission/how-to-application-2/">マイページ登録</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1393"><a href="https://ccmc.ac.jp/admission/how-to-application/">日本人一般入試</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1391"><a href="https://ccmc.ac.jp/admission/how-to-application-1/">留学生AO入試</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1392"><a href="https://ccmc.ac.jp/admission/extrance-examination/">留学生一般入試</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1395"><a href="https://ccmc.ac.jp/admission/requirement/">日本人募集要項</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1394"><a href="https://ccmc.ac.jp/admission/requirement-2/">留学生募集要項</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1397"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1398"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1399"><a href="https://ccmc.ac.jp/admission/request/oc/">オープンキャンパス申し込み</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1400"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1401"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1402"><a href="https://ccmc.ac.jp/admission/#home-blog">学校ブログ</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1403"><a href="https://ccmc.ac.jp/admission/#home-sns">SNS</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1404"><a href="https://ccmc.ac.jp/admission/#home-courses">学科・実績紹介</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1405"><a href="https://ccmc.ac.jp/admission/from-abroad/">海外特別入試</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="https://ccmc.ac.jp/admission/#home-job-training">公共職業訓練</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="https://ccmc.ac.jp/admission/job-training/">IT技術者養成</a></li>
-</ul>
-</li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="https://ccmc.ac.jp/admission/request/abroad/">資料請求</a>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="https://ccmc.ac.jp/admission/request/japanese/">資料請求（日本人）</a></li>
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="https://ccmc.ac.jp/admission/request/abroad/">資料請求（留学生）</a></li>
-</ul>
-</li>
-</ul></div></div>
-
-
+    <div class="menu-header2205-container">
+        <ul id="menu-header2205-1" class="menu">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1389"><a href="https://ccmc.ac.jp/admission/#home-ee">入試情報</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1396"><a href="https://ccmc.ac.jp/admission/how-to-application-2/">マイページ登録</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1393"><a href="https://ccmc.ac.jp/admission/how-to-application/">日本人一般入試</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1391"><a href="https://ccmc.ac.jp/admission/how-to-application-1/">留学生AO入試</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1392"><a href="https://ccmc.ac.jp/admission/extrance-examination/">留学生一般入試</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1395"><a href="https://ccmc.ac.jp/admission/requirement/">日本人募集要項</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1394"><a href="https://ccmc.ac.jp/admission/requirement-2/">留学生募集要項</a></li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1397"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1398"><a href="https://ccmc.ac.jp/admission/how-to-oc/">オープンキャンパス</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1399"><a href="https://ccmc.ac.jp/admission/request/oc/">オープンキャンパス申し込み</a></li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1400"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1401"><a href="https://ccmc.ac.jp/admission/#home-school">学校紹介</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1402"><a href="https://ccmc.ac.jp/admission/#home-blog">学校ブログ</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1403"><a href="https://ccmc.ac.jp/admission/#home-sns">SNS</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1404"><a href="https://ccmc.ac.jp/admission/#home-courses">学科・実績紹介</a></li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1405"><a href="https://ccmc.ac.jp/admission/from-abroad/">海外特別入試</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1406"><a href="{{ route('home') }}">マイPC希望</a>
+                <ul class="sub-menu">
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('none') }}">自分のノートPCを持ち</a></li>
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('new') }}"> 新型のノートPCを購入</a></li>
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('old') }}">中古のノートPCを購入</a></li>
+                    <li id="menu-item-1407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1407"><a href="{{ route('rent') }}">学校のノートPCを借り</a></li>
+                </ul>
+            </li>
+        @if (Route::has('login'))
+            @auth
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('home') }}">{{ Auth::user()->name }}</a>
+            <ul class="sub-menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mypc') }}">マイPC</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('wifi') }}">無線LAN利用申請</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mess') }}">問い合わせ</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('frm-logout').submit();">ログアウト</a>
+                    <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                        </form>
+                </li>
+            </ul>
+            </li>
+            @else
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1410"><a href="{{ route('login') }}">ログイン</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('login') }}">ログイン</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('register') }}">新規登録</a></li>
+                        
+                    </ul>
+                    </li>
+            @endauth
+        @endif
+        </ul>
+    </div>
+</div>
+<!-----------container----->
     <div class="container">
 
 
@@ -203,111 +231,133 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
         <div class="post">
             <h1 class="h1-page-title">
-                マイPC希望   </h1>
+                学校のノートPCを借り   </h1>
             <div class="h1-page-title-shadow">
             </div>
+            @if(Session::has('flash_message2'))
+            <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message2') !!}</em></div>
+        @endif
+        <h2>◆Microsoft 製ノート PC Surface Go 2</h2>
+        <p>&nbsp;</p>
+        <style>
            
-        <h2>◆マイPC希望調査</h2>
-        <p>&nbsp;</p>
-        <p>校長先生から、学生がコンピュータ・スキルを身に付ける環境を整備・充実していくため に、「マイ PC」(自分自身でパソコンを所有し、「遠隔授業」を含めて学校でも自宅でも学習 できる環境づくり)を学校が奨励し支援し、今後、すべての学生は、「マイ PC」を使って授 業を受講することができるように「マイ PC」必携化と新たな「マイ PC」支援制度について メッセージが発せられました。</p>
-        <p><img loading="lazy" class="alignnone wp-image-1335" src="https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-300x225.jpg" alt="" width="428" height="321" srcset="https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-300x225.jpg 300w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-1024x768.jpg 1024w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-768x576.jpg 768w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-1536x1152.jpg 1536w, https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/IMG_4867-2048x1536.jpg 2048w" sizes="(max-width: 428px) 100vw, 428px" /></p>
-        <p>&nbsp;</p>
-        <p>このサイトでは，マイPCに関する希望調査を実施します．</p>
-            <ul>
-                <li>１年生は必ず全員が回答してください</li>
-                <li>２年生の中で，これからPCを購入することを検討している人は，アンケートの中にPC購入についての希望調査がありますので，回答してください．</li>
-            </ul>
+        </style>
+      <div id="infor"class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                  
+                    <div class="thuvienanh">
+                        <div class="image">
+                            <img class="myimg" src="/img/rent.jpg" width="100%" alt="" style="cursor: zoom-in;">
+                        </div>
+                       
+        
+                    </div>
+                    <h3 class="mt-3">学生負担金 年額 18,000 円</h3>
+                    <ul>
+                        <li>通常購入価格:110,600 円(税込)</li>
+                        <li>貸与:5 月はじめ(予定)</li>
+                    </ul>
+                    <ul>(内訳)
+                        <li>管理費 年額 10,000 円</li>
+                        <li>学生負担通信料 年額 8,000 円
+                            
+                    学校契約の通信は、auの回線 上限10Gバイト(月額3,000円相当)です。
+    
+                        </li>
+                    </ul>
+                    <p>※学校契約の通信は、auの回線 上限10Gバイト(月額3,000円相当)です。<p>
+                   
+                   
+                    <hr style="opacity: 1;">
+                    <div>
+                        <div class="bottom-bar-content d-flex justify-content-between align-items-center flex-wrap my-2">
+                            <h3 class="subtotal__label h6 mb-0" style="margin-right:20%; font-weight: 800;" data-automation-test-id="configuratorV3-BottomBar-subtotal">小計</h3>
+                            <p class="subtotal__numbers h6 mb-0">¥18,000</p>
+                        </div>
+
+                        <form action="/mypcpost" method="POST">
+                            @csrf
+                            
+                            <input type="hidden" name="mypccode" value="6">
+                            <button type="submit" class="rail-container__rail__button btn btn-primary btn-block mt-3">送信</button>
+                          </form>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-lg-8 pl-lg-5 mt-5">
+                    <p>タッチパネル搭載でタブレットにもなる</p>
+                    <h1 style="font-weight: 1000;">Surface Go 2
+                        LTE Advanced</h1>
+                    <p>学校への持ち運び可能な軽量タイプ(約 778g)</p>
+                    <h5>大きくて明るい10.5インチタッチスクリーンディスプレイ</h5>
+                    <h5>革新的なキックスタンド</h5>
+
+                    <h4 style="font-weight: 700;">◆技術仕様</h4>
+                    <table class="table table-bordered">
+                        <tbody>
+                          <tr class="">
+                            <th class="col-3 text-center">CPU</th>
+                            <td>インテル® CoreTM m3 (第 8 世代) 2020 年製</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">メインメモリ</th>
+                            <td>8GB(オンボード 8GB)</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">OS</th>
+                            <td colspan="2">Windows10 Pro</td>
+                          </tr>
+                          <tr class="">
+                            <th class="col-2 text-center">ディスプレイ</th>
+                            <td>10.5 インチ PixelSenseTM ディスプレイ(1920x1280)</br> タッチ: 10 点マルチタッチ</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">グラフィック</th>
+                            <td>Intel®UHD グラフィックス 615(CPU 内蔵)</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">SSD</th>
+                            <td colspan="2">128GB SSD</td>
+                          </tr>
+                          <tr class="">
+                            <th class="col-2 text-center">光学ドライブ</th>
+                            <td>なし</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">Web カメラ</th>
+                            <td>内蔵(フロント、Windows Hello 対応、リアカメラ)</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">バッテリー</th>
+                            <td colspan="2">通常のデバイス使用時間は最大 10 時間</td>
+                          </tr>
+                          <tr class="">
+                            <th class="col-2 text-center">通信</th>
+                            <td>IEEE 802.11a/b/g/n/ac/ax、1GLAN、Bluetooth V5.0 準拠 LTE:au SIM 付属</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">質量</th>
+                            <td>約 778g</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">付属品</th>
+                            <td colspan="2">タイプカバー(キーボード)</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="col-2 text-center">保証</th>
+                            <td colspan="2">学校で修理受付</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+
+      </div>
         
         
            
-        </div>
-<div id="middle" class="clearfix">
-        <div class="top02 clearfix">
-            <div class="section-title">希望するものを選ぶ</div>
-            <!------------>
-            <div class="cell course01">
-                <div class="image image1">
-                    <img src="https://www.ccmc.ac.jp/wp-content/themes/ccmc/images/top/top_course01.png" alt="ITWeb学科">
-                </div>
-                <div class="information">
-                    <div class="title">
-                        自分のノートPCを学校に持って来る
-                        <div class="subtitle">
-                        もってこれるノートPCをすでに持っている・自分で購入する
-
-
-                        </div>
-                    </div>
-                    <div class="message">
-                        ※学校指定のスペック以上で、授業で利用できる ノート PC を学校に持って来てください。
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/it-web"></a>
-            </div>
-            <!--------------->
-            <div class="cell course03">
-                <div class="image image1">
-                    <img src="https://ccmc.ac.jp/admission/wp-content/uploads/2021/10/iOS-%E3%81%AE%E7%94%BB%E5%83%8F-2-1-1024x768.jpg" alt="ICTマネジメント学科">
-                </div>
-                <div class="information">
-                    <div class="title">
-                        新型のノートPCを購入する
-                        <div class="subtitle">
-                            新型ノート PC 富士通製 LIFEBOOKU7311/F
-                        </div>
-                    </div>
-                    <div class="message">
-                        <h5>学生購入価格 130,000 円</h5>
-                        <p>納期:5 月末(予定)</p>
-                        <p>保証期間:4 年</p>
-                        <p>通常購入価格 230,000 円</p>
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/ai-project"></a>
-            </div> 
-            <!----------------> 
-            <div class="cell course02">
-                <div class="image image1">
-                    <img src="https://ccmc.ac.jp/admission/wp-content/uploads/2022/06/IMG_9679-768x576.jpg" alt="ビジネスデザイン学科">
-                </div>
-                <div class="information">
-                    <div class="title">
-                        中古のノートPCを購入する
-                        <div class="subtitle">
-                            中古 Panasonic2016 年製 Let's note CF-MX5
-                        </div>
-                    </div>
-                    <div class="message">
-                        <h5>学生購入価格 66,000 円</h5>
-                        <p>納期:5 月はじめ(予定) 保証期間:6 ヶ月</P>
-                        <p> (保証期間後、自費での修理は可能です)</P>
-                        <p>状態の良い A ランク品</P>
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/business"></a>
-            </div>
-            <!---------------->
-            <div class="cell course04">
-                <div class="image image1">
-                    <img src="https://ccmc.ac.jp/admission/wp-content/uploads/2020/06/PC%E8%B2%B8%E4%B8%8E.jpg" alt="ビジネスデザイン学科">
-                </div>
-                <div class="information">
-                    <div class="title">
-                        学校のノートPCを借りる
-                        <div class="subtitle">
-                            マイクロソフト Surface Go 2
-                        </div>
-                    </div>
-                    <div class="message">
-                        <h5>通信費の自己負担 年額 18,000 円</h5>
-                            <p>貸与:5 月はじめ(予定) (内訳)
-                                <p>管理費 年額 10,000 円 学生負担通信料 年額 8,000 円
-                                    <p>通常購入価格 110,600 円 年間通信料 36,000円 のところ
-                    </div>
-                </div>
-                <a href="https://www.ccmc.ac.jp/course/business"></a>
-            </div>
-        </div>
         </div>
 
     </div>
@@ -444,6 +494,11 @@ var wpcf7cf_global_settings = {"ajaxurl":"https:\/\/ccmc.ac.jp\/admission\/wp-ad
 /* <![CDATA[ */
 var wpcf7_recaptcha = {"sitekey":"6LcCuXoaAAAAAGC2migF5OXbtk1NV5XMMh-NLGzo","actions":{"homepage":"homepage","contactform":"contactform"}};
 /* ]]> */
+</script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+   
+    new Zooming().listen('.thuvienanh img');
 </script>
 <script type='text/javascript' src='https://ccmc.ac.jp/admission/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.4' id='wpcf7-recaptcha-js'></script>
 <script type='text/javascript' src='https://ccmc.ac.jp/admission/wp-content/themes/ccmc-admission/js/app.bundle.js?v=20220902053914&#038;ver=6.0.2' id='main-script-js'></script>
