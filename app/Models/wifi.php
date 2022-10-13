@@ -13,5 +13,6 @@ class wifi extends Model
         'address',
         'os',
         'description',
+        'wifisent',
     ];
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('os');
             $table->string('description');
+            $table->integer('wifisent')->default(0);
             $table->timestamps();
         });
     }
