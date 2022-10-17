@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Base;
 
-class mess extends Model
+class mess extends Base
 {
     use HasFactory;
     protected $fillable = [
