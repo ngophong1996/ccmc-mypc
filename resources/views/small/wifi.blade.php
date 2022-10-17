@@ -102,7 +102,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                             
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mypc') }}">マイPC</a></li>
                                             <li id="menu-item-1408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('wifi') }}">無線LAN利用申請</a></li>
-                                            <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mess') }}">問い合わせ</a></li>
+                                            <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mess') }}">お問い合わせ</a></li>
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('frm-logout').submit();">ログアウト</a>
                                                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
@@ -180,7 +180,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <ul class="sub-menu">
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mypc') }}">マイPC</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('wifi') }}">無線LAN利用申請</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mess') }}">問い合わせ</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mess') }}">お問い合わせ</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('frm-logout').submit();">ログアウト</a>
                     <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
@@ -262,7 +262,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
            
         </div>
         
-<div id="form" >
+    <div id="form" >
         <div class="col-8">
             <div class="section-title mb-4">申請用フォーム</div>
             <form action="/wifipost" method="POST">
@@ -305,7 +305,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 <button type="submit" class="btn btn-primary">送信</button>
               </form>
         </div>
-        </div>
+    </div>
 
     </div>
      <!-- .container -->

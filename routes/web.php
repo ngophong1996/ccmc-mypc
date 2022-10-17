@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,23 @@ use App\Http\Controllers\Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+Route::get('admin/login', function(){
+    return view('admin.login');
+});
+Route::post('admin/login', [AdminController::class, 'loginPost'])->name('admin.loginPost');
+Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+Route::middleware(['admin'])->group(function (){
+    Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('admin/static', [AdminController::class, 'static'])->name('admin.static');
+    Route::get('admin/listing/{model}', [ListingController::class, 'index'])->name('listing.index');
+});
+
+
+
 
 Route::get('/', function () {
     return view('home');
@@ -51,6 +69,7 @@ Route::controller(PageController::class)->group(function () {
 Route::post('/wifipost', [PageController::class, 'wifipost'])->middleware(['auth', 'verified'])->name('wifipost');
 Route::post('/mypcpost', [PageController::class, 'mypcpost'])->middleware(['auth', 'verified'])->name('mypcpost');
 Route::post('/billpost', [PageController::class, 'billpost'])->middleware(['auth', 'verified'])->name('billpost');
+Route::post('/messpost', [PageController::class, 'messpost'])->middleware(['auth', 'verified'])->name('messpost');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

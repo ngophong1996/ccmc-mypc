@@ -155,11 +155,17 @@ class PageController extends Controller
             ]);
         
         }
-       
-
-
-
-       
+    }
+    public function messpost(Request $request){
         
+
+        DB::table('messes')->insert([
+            'username' => Auth::user()->name,
+            'useremail' => Auth::user()->email,
+            'class' => Auth::user()->class,
+            'content' => $request->mess,
+            ]);
+        Session::flash('flash_message','送信成功');
+        return redirect()->route('mess');
     }
 }

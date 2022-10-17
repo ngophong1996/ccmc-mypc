@@ -102,7 +102,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                             
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mypc') }}">マイPC</a></li>
                                             <li id="menu-item-1408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('wifi') }}">無線LAN利用申請</a></li>
-                                            <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mess') }}">問い合わせ</a></li>
+                                            <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('mess') }}">お問い合わせ</a></li>
                                             <li id="menu-item-1409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('frm-logout').submit();">ログアウト</a>
                                                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
@@ -180,7 +180,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <ul class="sub-menu">
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mypc') }}">マイPC</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('wifi') }}">無線LAN利用申請</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mess') }}">問い合わせ</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1408"><a href="{{ route('mess') }}">お問い合わせ</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1409"><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('frm-logout').submit();">ログアウト</a>
                     <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
@@ -290,26 +290,30 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <th class="col-2 text-center">負担金</th>
             <td> {{ number_format($mypc->total, 0) }}円</td>
           </tr>
-          <tr>
-            <th scope="row" class="col-2 text-center">支払状態</th>
-            <td> @if ($mypc->paymentstate == 0)
-                <p>支払いを完了するには、次の銀行口座にお金をお振込みください。</p>
-                <p>金融機関名： 中央情報専門学校</p>
-                <p>口座番号：123-456789</p>
+          @if (!($mypc->wifi ==0 && $mypc->option == "自分のノートPC"))
+            <tr>
+                <th scope="row" class="col-2 text-center">支払状態</th>
+                <td> @if ($mypc->paymentstate == 0)
+                    <p>支払いを完了するには、次の銀行口座にお金をお振込みください。</p>
+                    <p>金融機関名： 中央情報専門学校</p>
+                    <p>口座番号：123-456789</p>
 
-                <p>送金が完了したら、請求書の写真をこちらに送信してください</p>
-                <form enctype="multipart/form-data" action="/billpost" method="POST">
-                    @csrf
-                    <input type="file" name="image">
-                   <div> <button type="submit" class=" btn btn-primary mt-3">送信</button></div>
-                </form>
-            @elseif ($mypc->paymentstate == 1)
-                    保留中
-            @else
-             入金確認済み
-            @endif
-               </td>
-          </tr>
+                    <p>送金が完了したら、請求書の写真をこちらに送信してください</p>
+                    <form enctype="multipart/form-data" action="/billpost" method="POST">
+                        @csrf
+                        <input type="file" name="image">
+                    <div> <button type="submit" class=" btn btn-primary mt-3">送信</button></div>
+                    </form>
+                @elseif ($mypc->paymentstate == 1)
+                        保留中
+                @else
+                入金確認済み
+                @endif
+                </td>
+            </tr>
+              
+          @endif
+          
           
         </tbody>
       </table>
