@@ -1,5 +1,6 @@
 <div class="navbar nav_title" style="border: 0;">
-    <a href="index.html" class="site_title">Culture Travel</a>
+
+    <a href="index.html" class="site_title">Admin Dashboard</a>
   </div>
 
   <div class="clearfix"></div>
@@ -25,11 +26,11 @@
       <ul class="nav side-menu">
         <li><a><i class="fa fa-home"></i> Menu <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="{{ route('listing.index',['model'=>'Menu']) }}">Danh mục</a></li>
-            <li><a href="{{ route('listing.index',['model'=>'Area']) }}">Thông tin vùng miền</a></li>
-            <li><a href="{{ route('listing.index',['model'=>'Post']) }}">Bài đăng</a></li>
-            <li><a href="{{ route('listing.index',['model'=>'Admin']) }}">Admin</a></li>
-            <li><a href="{{ route('listing.index',['model'=>'User']) }}">User</a></li>
+            <li><a href="{{ route('listing.index',['model'=>'User']) }}">User Account</a></li>
+            <li><a href="{{ route('listing.index',['model'=>'Admin']) }}">Admin Account</a></li>
+            <li><a href="{{ route('listing.index',['model'=>'mypc']) }}">Application for myPc</a></li>
+            <li><a href="{{ route('listing.index',['model'=>'wifi']) }}">Application for wireless LAN</a></li>
+            <li><a href="{{ route('listing.index',['model'=>'mess']) }}">Messages</a></li>
           </ul>
         </li>
         </ul>

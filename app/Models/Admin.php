@@ -21,7 +21,7 @@ class Admin extends Base implements AuthenticatableContract
             ),
             array(
                 'field' => "name",
-                'name'=>'Tên quản trị viên',
+                'name'=>'Name',
                 'type'=> 'text'
             ),
             array(

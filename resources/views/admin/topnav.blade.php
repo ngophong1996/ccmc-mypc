@@ -1,5 +1,7 @@
 <div class="nav_menu">
     <nav class="nav navbar-nav">
+      <div class="navbar-left"><img src="/img/ccmc-logo.png" alt="" ></div>
+      
     <ul class=" navbar-right">
       <li class="nav-item dropdown open" style="padding-left: 15px;">
         <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">

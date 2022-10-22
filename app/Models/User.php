@@ -14,6 +14,57 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use HasApiTokens, HasFactory, Notifiable;
+    public function listingconfigs(){
+        return array(
+            array(
+                'field' => 'id',
+                'name'=>'ID',
+                'type'=> 'text'
+            ),
+            array(
+                'field' => "name",
+                'name'=>'Name',
+                'type'=> 'text'
+            ),
+            array(
+                'field' => "email",
+                'name'=>'Email',
+                'type'=> 'text'
+            ),
+            array(
+                'field' => "class",
+                'name'=>'Class',
+                'type'=> 'text'
+            ),
+             array(
+                 'field' => "updated_at",
+                 'name'=>'updated_at',
+                 'type'=> 'text'
+             ),
+             array(
+                 'field' => "created_at",
+                 'name'=>'created_at',
+                 'type'=> 'text'
+             ),
+             array(
+                'field' => "copy",
+                'name'=>'copy',
+                'type'=> 'copy'
+            ),
+            array(
+                'field' => "edit",
+                'name'=>'edit',
+                'type'=> 'edit'
+            ),
+            array(
+                'field' => "delete",
+                'name'=>'delete',
+                'type'=> 'delete'
+            )
+ 
+        );
+        
+     }
 
     /**
      * The attributes that are mass assignable.
@@ -45,4 +96,5 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+   
 }

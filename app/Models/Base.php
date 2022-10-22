@@ -13,12 +13,12 @@ class Base extends Model
         return array(
              array(
                  'field' => "updated_at",
-                 'name'=>'Ngày cập nhật',
+                 'name'=>'updated_at',
                  'type'=> 'text'
              ),
              array(
                  'field' => "created_at",
-                 'name'=>'Ngày khởi tạo',
+                 'name'=>'created_at',
                  'type'=> 'text'
              ),
              array(
@@ -28,12 +28,12 @@ class Base extends Model
             ),
             array(
                 'field' => "edit",
-                'name'=>'Sửa',
+                'name'=>'edit',
                 'type'=> 'edit'
             ),
             array(
                 'field' => "delete",
-                'name'=>'Xoá',
+                'name'=>'delete',
                 'type'=> 'delete'
             )
  
