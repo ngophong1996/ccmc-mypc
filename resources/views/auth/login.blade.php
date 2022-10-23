@@ -39,12 +39,12 @@
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                        {{ __('新規登録') }}
+                       新規登録
                     </a>
                 @endif
 
                 <x-primary-button class="ml-3">
-                    {{ __('ログイン') }}
+                    ログイン
                 </x-primary-button>
             </div>
         </form>
