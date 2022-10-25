@@ -9,6 +9,7 @@ use App\Models\Base;
 class mypc extends Base
 {
     use HasFactory;
+    public $timestamps = true;
     protected $fillable = [
         'username',
         'useremail',
@@ -19,6 +20,8 @@ class mypc extends Base
         'wifi',
         'total',
         'paymentstate',
+        'created_at',
+        'updated_at'
       
 
     ];
@@ -68,12 +71,12 @@ class mypc extends Base
             array(
                 'field' => "image",
                 'name'=>'Bill Image',
-                'type'=> 'text'
+                'type'=> 'image'
             ),
             array(
-                'field' => "paymanetstate",
+                'field' => "paymentstate",
                 'name'=>'Payment status',
-                'type'=> 'text'
+                'type'=> 'paymentstate'
             ),
 
        );

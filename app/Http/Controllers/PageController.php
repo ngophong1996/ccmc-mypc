@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Http\Requests;
+use App\Mail\Wifisent;
+use Illuminate\Support\Facades\Mail;
+
+
 class PageController extends Controller
 {
     public function none(){
@@ -168,4 +172,38 @@ class PageController extends Controller
         Session::flash('flash_message','送信成功');
         return redirect()->route('mess');
     }
+    public function mypcdestroy($id){
+        $mypc1= DB::table('mypcs')->where('id', $id);
+        $mypc1->delete();
+
+        Session::flash('flash_message3','削除しました');
+
+        $mypc= DB::table('mypcs')
+            ->where('username', Auth::user()->name)
+            ->first();
+        return redirect()->route("mypc",[
+                'mypc'=>$mypc,
+            ]);
+    }
+
+    public function checkbill(Request $request){
+        
+
+        DB::table('messes')->insert([
+            'username' => Auth::user()->name,
+            'useremail' => Auth::user()->email,
+            'class' => Auth::user()->class,
+            'content' => $request->mess,
+            ]);
+        Session::flash('flash_message','送信成功');
+        return redirect()->route('mess');
+    }
+
+    public function wifisent(Request $request){
+        
+        $usermail = $request->usermail;
+        Mail::to($usermail)->send(new Wifisent());
+        return redirect()->route('listing.index',['model'=>'wifi']);
+    }
 }
+

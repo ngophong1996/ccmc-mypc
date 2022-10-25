@@ -254,75 +254,85 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     @if(Session::has('flash_message2'))
         <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message2') !!}</em></div>
     @endif
+    @if(Session::has('flash_message3'))
+        <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message3') !!}</em></div>
+    @endif
     @if ($mypc== null)
     マイPC登録されていません
     @else
-    <table class="table table-bordered col-10">
-        <tbody>
-          <tr class="">
-            <th class="col-2 text-center">氏名</th>
-            <td>{{ $mypc->username }}</td>
-          </tr>
-          <tr>
-            <th scope="row" class="col-2 text-center">メール</th>
-            <td>{{ $mypc->useremail }}</td>
-          </tr>
-          <tr>
-            <th scope="row" class="col-2 text-center">クラス</th>
-            <td colspan="2">{{ $mypc->class }}</td>
-          </tr>
-          <tr class="">
-            <th class="col-2 text-center">マイPC希望</th>
-            <td>{{ $mypc->option }}</td>
-          </tr>
-          <tr>
-            <th scope="row" class="col-2 text-center">デバイス</th>
-            <td>{{ $mypc->device }}</td>
-          </tr>
-          <tr>
-            <th scope="row" class="col-2 text-center">モバイルルータ</th>
-            <td colspan="2"> @if ( $mypc->wifi == 0 ) 借りない
-                                @else 借りる
-                            @endif 
-            </td>
-          </tr>
-          <tr class="">
-            <th class="col-2 text-center">負担金</th>
-            <td> {{ number_format($mypc->total, 0) }}円</td>
-          </tr>
-          @if (!($mypc->wifi ==0 && $mypc->option == "自分のノートPC"))
+        <table class="table table-bordered col-10">
+            <tbody>
+            <tr class="">
+                <th class="col-2 text-center">氏名</th>
+                <td>{{ $mypc->username }}</td>
+            </tr>
             <tr>
-                <th scope="row" class="col-2 text-center">支払状態</th>
-                <td> @if ($mypc->paymentstate == 0)
-                    <p>支払いを完了するには、次の銀行口座にお金をお振込みください。</p>
-                    <p>金融機関名： 中央情報専門学校</p>
-                    <p>口座番号：123-456789</p>
-
-                    <p>送金が完了したら、請求書の写真をこちらに送信してください</p>
-                    <form enctype="multipart/form-data" action="/billpost" method="POST">
-                        @csrf
-                        <input type="file" name="image">
-                    <div> <button type="submit" class=" btn btn-primary mt-3">送信</button></div>
-                    </form>
-                @elseif ($mypc->paymentstate == 1)
-                        保留中
-                @else
-                入金確認済み
-                @endif
+                <th scope="row" class="col-2 text-center">メール</th>
+                <td>{{ $mypc->useremail }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="col-2 text-center">クラス</th>
+                <td colspan="2">{{ $mypc->class }}</td>
+            </tr>
+            <tr class="">
+                <th class="col-2 text-center">マイPC希望</th>
+                <td>{{ $mypc->option }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="col-2 text-center">デバイス</th>
+                <td>{{ $mypc->device }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="col-2 text-center">モバイルルータ</th>
+                <td colspan="2"> @if ( $mypc->wifi == 0 ) 借りない
+                                    @else 借りる
+                                @endif 
                 </td>
             </tr>
-              
-          @endif
-          
-          
-        </tbody>
-      </table>
+            <tr class="">
+                <th class="col-2 text-center">負担金</th>
+                <td> {{ number_format($mypc->total, 0) }}円</td>
+            </tr>
 
-      <h2>◆学生用 ノートPC無線LAN利用申請</h2>
-      <p>校内無線LANを利用するには登録申請が必要です。</p>
-      <p>無線LAN利用するには、下のリンクをクリックしてください</p>
-      <a href="{{ route('wifi') }}">無線LAN利用申請</a>
-      <p>&nbsp;</p>
+            @if (!($mypc->wifi ==0 && $mypc->option == "自分のノートPC"))
+                <tr>
+                    <th scope="row" class="col-2 text-center">支払状態</th>
+                    <td> @if ($mypc->paymentstate == 0)
+                        <p>支払いを完了するには、次の銀行口座にお金をお振込みください。</p>
+                        <p>金融機関名： 中央情報専門学校</p>
+                        <p>口座番号：123-456789</p>
+
+                        <p>送金が完了したら、請求書の写真をこちらに送信してください</p>
+                        <form enctype="multipart/form-data" action="/billpost" method="POST">
+                            @csrf
+                            <input type="file" name="image">
+                        <div> <button type="submit" class=" btn btn-primary mt-3">送信</button></div>
+                        </form>
+                    @elseif ($mypc->paymentstate == 1)
+                            保留中
+                    @else
+                    入金確認済み
+                    @endif
+                    </td>
+                </tr>
+                
+            @endif
+            
+            
+            </tbody>
+        </table>
+        <form action="/mypc/{{ $mypc->id }}" method="post">
+            @csrf
+            @method('delete')
+            <p>選択を変更したい場合は、一度削除してから選択し直してください</p>
+            <button type="submit" class="btn btn-danger">削除</button>
+        </form>
+        <p>&nbsp;</p>
+        <h2>◆学生用 ノートPC無線LAN利用申請</h2>
+        <p>校内無線LANを利用するには登録申請が必要です。</p>
+        <p>無線LAN利用するには、下のリンクをクリックしてください</p>
+        <a href="{{ route('wifi') }}">無線LAN利用申請</a>
+        <p>&nbsp;</p>
     @endif
         
 

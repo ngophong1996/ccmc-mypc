@@ -9,12 +9,14 @@ use App\Models\Base;
 class mess extends Base
 {
     use HasFactory;
+    protected $table = 'messes';
+    public $timestamps = true;
     protected $fillable = [
         'username',
         'useremail',
         'class',
         'content',
-      
+       
 
     ];
     public function listingConfigs(){

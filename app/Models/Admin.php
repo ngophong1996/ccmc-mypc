@@ -28,7 +28,32 @@ class Admin extends Base implements AuthenticatableContract
                 'field' => "email",
                 'name'=>'Email',
                 'type'=> 'text'
-            )
+            ),
+            array(
+                'field' => "updated_at",
+                'name'=>'updated_at',
+                'type'=> 'text'
+            ),
+            array(
+                'field' => "created_at",
+                'name'=>'created_at',
+                'type'=> 'text'
+            ),
+            array(
+               'field' => "copy",
+               'name'=>'copy',
+               'type'=> 'copy'
+           ),
+           array(
+               'field' => "edit",
+               'name'=>'edit',
+               'type'=> 'edit'
+           ),
+           array(
+               'field' => "delete",
+               'name'=>'delete',
+               'type'=> 'delete'
+           )
        );
 
        return array_merge($listingConfigs, $defaultListingConfigs);

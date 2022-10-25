@@ -65,12 +65,16 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/mypc', 'mypc')->middleware(['auth', 'verified'])->name('mypc');
     Route::get('/wifi', 'wifi')->middleware(['auth', 'verified'])->name('wifi');
     Route::get('/mess', 'mess')->middleware(['auth', 'verified'])->name('mess');
+
 });
 
+Route::delete('/mypc/{id}',[PageController::class, 'mypcdestroy'])->name('mypc.destroy');
 Route::post('/wifipost', [PageController::class, 'wifipost'])->middleware(['auth', 'verified'])->name('wifipost');
 Route::post('/mypcpost', [PageController::class, 'mypcpost'])->middleware(['auth', 'verified'])->name('mypcpost');
 Route::post('/billpost', [PageController::class, 'billpost'])->middleware(['auth', 'verified'])->name('billpost');
 Route::post('/messpost', [PageController::class, 'messpost'])->middleware(['auth', 'verified'])->name('messpost');
+Route::post('/checkbill', [PageController::class, 'checkbill'])->middleware(['auth', 'verified'])->name('checkbill');
+Route::post('/wifisent', [PageController::class, 'wifisent'])->middleware(['auth', 'verified'])->name('wifisent');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

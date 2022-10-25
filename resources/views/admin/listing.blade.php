@@ -58,13 +58,46 @@
                         <?php switch($config['type']){
                             case "text": ?> <td><?=$record[$config['field']]?></td> <?php
                                 break;
-                            case "image": ?> <td> <img src="<?=$record[$config['field']]?>"/></td><?php
+                            case "money": ?> <td>￥<?=number_format($record[$config['field']])?></td> <?php
+                                break;
+                            case "image": ?> <td>  <div class="thuvienanh"> <div class="image"> <img class="myimg" src="/img/<?=$record[$config['field']]?>" width="100" alt="" style="cursor: zoom-in;"> </div> </div> </td><?php
                                 break;
                             case "copy": ?> <td> <a href="#"><i class="fa fa-clone" aria-hidden="true"></i>&nbsp;Copy</a> </td> <?php
                                 break;
                             case "edit": ?> <td> <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Sửa</a></td> <?php
                                 break;
                             case "delete": ?> <td> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Xoá</a></td> <?php
+                                break;
+                            case "wifisent": ?> <td>
+                              @if ($record[$config['field']]==0)
+                              <form action="/wifisent" method="post">
+                                @csrf
+                                <input type="hidden" id="usermail" name="usermail" value="{{ $record['useremail'] }}">
+                                <button type="submit" class="btn btn-success">送信</button>
+                              </form>
+                              @else
+                              <form action="/wifisent" method="post">
+                                @csrf
+
+                                <button type="submit" class="btn btn-secondary">再送信</button>
+                              </form>
+                              @endif
+                              
+                              </td> <?php
+                                break;
+                            case "paymentstate": ?> <td>
+                              @if ($record[$config['field']]==0)
+                                  <button type="submit" class="btn btn-danger" disabled>未確認</button>
+                              @elseif ($record[$config['field']]==1)
+                                <form action="/checkbill" method="post">
+                                  @csrf
+                                  <button type="submit" class="btn btn-success">確認</button>
+                                </form>
+                              @else
+                                  <button type="submit" class="btn btn-secondary" disabled>確認済み</button>
+                              @endif
+                             
+                              </td> <?php
                                 break;
                         } ?>
                         <?php } ?>

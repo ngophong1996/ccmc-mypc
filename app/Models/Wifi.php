@@ -15,6 +15,8 @@ class wifi extends Base
         'os',
         'description',
         'wifisent',
+        'created_at',
+        'updated_at'
     ];
     public function listingConfigs(){
         $defaultListingConfigs = parent::defaultListingConfigs();
@@ -47,7 +49,7 @@ class wifi extends Base
             array(
                 'field' => "wifisent",
                 'name'=>'Sent wifi-infor',
-                'type'=> 'text'
+                'type'=> 'wifisent'
             ),
        );
 
