@@ -73,10 +73,10 @@ Route::post('/wifipost', [PageController::class, 'wifipost'])->middleware(['auth
 Route::post('/mypcpost', [PageController::class, 'mypcpost'])->middleware(['auth', 'verified'])->name('mypcpost');
 Route::post('/billpost', [PageController::class, 'billpost'])->middleware(['auth', 'verified'])->name('billpost');
 Route::post('/messpost', [PageController::class, 'messpost'])->middleware(['auth', 'verified'])->name('messpost');
-Route::post('/checkbill', [PageController::class, 'checkbill'])->middleware(['auth', 'verified'])->name('checkbill');
-Route::post('/wifisent', [PageController::class, 'wifisent'])->middleware(['auth', 'verified'])->name('wifisent');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::post('/checkbill', [PageController::class, 'checkbill'])->name('checkbill');
+Route::post('/wifisent', [PageController::class, 'wifisent'])->name('wifisent');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

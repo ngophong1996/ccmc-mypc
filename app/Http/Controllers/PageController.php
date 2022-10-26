@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Http\Requests;
 use App\Mail\Wifisent;
+use App\Mail\Checkbill;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -187,23 +188,24 @@ class PageController extends Controller
     }
 
     public function checkbill(Request $request){
-        
+  
+        $mypcid= $request->mypcid;
+        DB::table('mypcs')->where('id', $mypcid)->update(['paymentstate' => 2]);
+        $usermail = $request->usermail;
+        Mail::to($usermail)->send(new Checkbill());
 
-        DB::table('messes')->insert([
-            'username' => Auth::user()->name,
-            'useremail' => Auth::user()->email,
-            'class' => Auth::user()->class,
-            'content' => $request->mess,
-            ]);
-        Session::flash('flash_message','送信成功');
-        return redirect()->route('mess');
+        return redirect()->route('listing.index',['model'=>'mypc']);
+     
     }
 
     public function wifisent(Request $request){
-        
+        $wifiid= $request->wifiid;
+        DB::table('wifis')->where('id', $wifiid)->update(['wifisent' => 1]);
         $usermail = $request->usermail;
         Mail::to($usermail)->send(new Wifisent());
+
         return redirect()->route('listing.index',['model'=>'wifi']);
     }
+   
 }
 

@@ -1,6 +1,6 @@
 <div class="navbar nav_title" style="border: 0;">
 
-    <a href="index.html" class="site_title">Admin Dashboard</a>
+    <a href="{{ route('admin.dashboard') }}" class="site_title">Admin Dashboard</a>
   </div>
 
   <div class="clearfix"></div>

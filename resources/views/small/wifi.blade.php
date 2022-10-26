@@ -282,7 +282,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="os" value="√Windows 11" id="flexRadioDefault2" >
+                        <input class="form-check-input" type="radio" name="os" value="Windows 11" id="flexRadioDefault2" >
                         <label class="form-check-label" for="flexRadioDefault2">
                             Windows 11
                         </label>

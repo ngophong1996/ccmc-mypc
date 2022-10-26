@@ -321,12 +321,17 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             
             </tbody>
         </table>
+        @if (!($mypc->paymentstate==2))
         <form action="/mypc/{{ $mypc->id }}" method="post">
             @csrf
             @method('delete')
             <p>選択を変更したい場合は、一度削除してから選択し直してください</p>
             <button type="submit" class="btn btn-danger">削除</button>
         </form>
+            
+        @endif
+        
+
         <p>&nbsp;</p>
         <h2>◆学生用 ノートPC無線LAN利用申請</h2>
         <p>校内無線LANを利用するには登録申請が必要です。</p>

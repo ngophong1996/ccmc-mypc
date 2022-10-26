@@ -64,21 +64,23 @@
                                 break;
                             case "copy": ?> <td> <a href="#"><i class="fa fa-clone" aria-hidden="true"></i>&nbsp;Copy</a> </td> <?php
                                 break;
-                            case "edit": ?> <td> <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Sửa</a></td> <?php
+                            case "edit": ?> <td> <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</a></td> <?php
                                 break;
-                            case "delete": ?> <td> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Xoá</a></td> <?php
+                            case "delete": ?> <td> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</a></td> <?php
                                 break;
                             case "wifisent": ?> <td>
                               @if ($record[$config['field']]==0)
                               <form action="/wifisent" method="post">
                                 @csrf
+                                <input type="hidden" id="wifiid" name="wifiid" value="{{ $record['id'] }}">
                                 <input type="hidden" id="usermail" name="usermail" value="{{ $record['useremail'] }}">
                                 <button type="submit" class="btn btn-success">送信</button>
                               </form>
                               @else
                               <form action="/wifisent" method="post">
                                 @csrf
-
+                                <input type="hidden" id="wifiid" name="wifiid" value="{{ $record['id'] }}">
+                                <input type="hidden" id="usermail" name="usermail" value="{{ $record['useremail'] }}">
                                 <button type="submit" class="btn btn-secondary">再送信</button>
                               </form>
                               @endif
@@ -91,6 +93,8 @@
                               @elseif ($record[$config['field']]==1)
                                 <form action="/checkbill" method="post">
                                   @csrf
+                                  <input type="hidden" id="mypcid" name="mypcid" value="{{ $record['id'] }}">
+                                  <input type="hidden" id="usermail" name="usermail" value="{{ $record['useremail'] }}">
                                   <button type="submit" class="btn btn-success">確認</button>
                                 </form>
                               @else
