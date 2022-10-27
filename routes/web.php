@@ -75,8 +75,8 @@ Route::post('/billpost', [PageController::class, 'billpost'])->middleware(['auth
 Route::post('/messpost', [PageController::class, 'messpost'])->middleware(['auth', 'verified'])->name('messpost');
 Route::post('/checkbill', [PageController::class, 'checkbill'])->name('checkbill');
 Route::post('/wifisent', [PageController::class, 'wifisent'])->name('wifisent');
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
