@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Base;
 
+
 class mess extends Base
 {
     use HasFactory;
@@ -19,6 +20,8 @@ class mess extends Base
        
 
     ];
+
+    public $title = "Message";
     public function listingConfigs(){
         $defaultListingConfigs = parent::defaultListingConfigs();
         $listingConfigs= array(

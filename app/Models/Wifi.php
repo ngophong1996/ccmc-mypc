@@ -18,6 +18,7 @@ class wifi extends Base
         'created_at',
         'updated_at'
     ];
+    public $title="List of registered to use wifi network";
     public function listingConfigs(){
         $defaultListingConfigs = parent::defaultListingConfigs();
         $listingConfigs= array(

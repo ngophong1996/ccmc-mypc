@@ -14,6 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use HasApiTokens, HasFactory, Notifiable;
+    public $title="List of users";
     public function listingconfigs(){
         return array(
             array(

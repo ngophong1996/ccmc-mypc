@@ -11,6 +11,7 @@ class Admin extends Base implements AuthenticatableContract
 {
     use HasFactory;
     use Authenticatable;
+    public $title= "List of Admin account";
     public function listingConfigs(){
         $defaultListingConfigs = parent::defaultListingConfigs();
         $listingConfigs= array(

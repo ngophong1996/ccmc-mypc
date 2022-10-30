@@ -20,7 +20,8 @@ class ListingController extends Controller
         return view('admin.listing',[
             'user'=>$adminUser,
             'records'=>$records,
-            'configs'=>$configs
+            'configs'=>$configs,
+            'title'=>$model->title,
         ]);
     }
 }

@@ -25,6 +25,7 @@ class mypc extends Base
       
 
     ];
+    public $title = "MyPC subscription list";
     public function listingConfigs(){
         $defaultListingConfigs = parent::defaultListingConfigs();
         $listingConfigs= array(
