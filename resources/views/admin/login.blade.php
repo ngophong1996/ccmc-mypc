@@ -53,8 +53,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Culture Travel</h1>
-                  <p>©2016 Culture Travel at Home. All Rights Reserved.</p>
+                  <h1><i class="fa fa-paw"></i> 中央情報専門学校</h1>
+                  <p>©2016 CCMC. All Rights Reserved.</p>
                 </div>
               </div>
             </form>

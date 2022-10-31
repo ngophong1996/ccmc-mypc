@@ -66,7 +66,7 @@ class PageController extends Controller
         $mypc1= DB::table('mypcs')
         ->where('username', Auth::user()->name)
         ->first();
-        Session::flash('flash_message','アップロード成功、進行を待っている');
+        Session::flash('flash_message','アップロード成功、現在進行中です');
         return redirect()->route("mypc",[
             'mypc'=>$mypc1,
         ]);

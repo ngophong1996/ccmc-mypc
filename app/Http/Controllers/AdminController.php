@@ -9,7 +9,7 @@ class AdminController extends Controller
     public function loginPost(Request $request){
         $credentials = $request->only('email','password');
         if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('listing.index',['model'=>'User']);
         }else {
             echo " dang nhap sai";exit;
         }
